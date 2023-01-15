@@ -5,18 +5,33 @@
     <title>Sorteia Equipa</title>
 </head>
 <body>
+<h2>Sorteia Equipa</h2>
+<div id="equipa_div">Clique seguidamente no botão abaixo para escalar a equipa!</div>
 
-<div id="equipa"></div>
-
+<br>
 <input type="button" value="Sorteia!" onclick="sorteia();">
 
 
 <script>
-    var jogadores=("Daniel","Dario","Thiago")
-
+    var jogadores = ["Daniel","Dario","Thiago","Diogo","Gonçalo","Nuno","Diego","Dinis","Hugo","Joaquim","Martin","Sistelos","André","Luís"];
+    x = 0;
     function sorteia() {
-        sorteio = rnd(0,3)
-        console.log(sorteio);
+        var equipa = [];
+        while (equipa.length < 6) {
+            sorteio = Math.floor(Math.random() * jogadores.length);
+            jogador_add = jogadores[sorteio]
+            if (equipa.find(element => element == jogador_add)) {} else {
+                console.log(jogador_add)
+                equipa.push(jogador_add)
+                }
+        }
+        equipa_formatted = ""
+        while (x < equipa.length) {
+            equipa_formatted = equipa_formatted+"<li>"+equipa[x]+"</li>";
+            x++
+        }
+        x=0
+        document.getElementById("equipa_div").innerHTML=equipa_formatted
     }
 </script>
 
